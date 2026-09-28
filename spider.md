@@ -228,3 +228,304 @@ Note: Add stage or diagram
     - Testing the changes and impacted /affected area is called as regionl regression testing.
 
     3. full regression testing. 
+    ---
+
+## 4. STLC (Software Test Life Cycle)
+- STLC is a step by step or standard procedure to test a new software
+
+    - System study (here we understand the requirement)
+    - Write test plan
+    - write test case
+    - Prepare Tracebility Matrix
+    - Test case execution
+    - Defect Tracking
+    - Prepare test case execution report
+    - Postmortom / Project Closer / Restrospective meeting.  
+---
+
+## 5. Test Plan
+    - Test plan is a document which drives all future testing activities.
+
+    #### Test plan consists of 15 stages 
+    - Objective
+    - Scope
+    - Test menthodlogy
+    - Test approchs
+    - Assumptions 
+    - Risk
+    - Backup plan
+    - Roles and Responsibilities
+    - Scheduling
+    - Defect tracting
+    - Test Env
+    - Entry and Exit criteria
+    - Test Automation
+    - Deliverables
+    - Templates.
+
+## Test cases
+1. **Test Scenario** : A test scenario is a high-level description of a real business flow or user action that needs to be tested.
+
+### Example
+
+- User logs in and places an order
+- User searches for a product and filters results
+- User updates profile details
+
+2. **Test Case** :  A test case is a complete set of steps, input values, preconditions, expected results, and postconditions used to validate a specific behavior.
+
+### Standard test case fields
+
+- Test case ID
+- Test case name
+- Objective
+- Preconditions
+- Test data
+- Steps
+- Expected result
+- Actual result
+- Status
+- Test case type
+- Post condtions
+- Severity
+
+### Example test case
+
+**Title:** Verify login with valid credentials
+
+- Precondition: User is on login page
+- Steps:
+  1. Enter valid username
+  2. Enter valid password
+  3. Click Login
+- Expected result: User is redirected to homepage and login succeeds
+
+---
+
+## 3. Difference Between Test Scenario and Test Case
+
+| Test Scenario | Test Case |
+| -- | -- |
+| High-level business flow | Detailed execution steps |
+| Example: login process | Example: enter valid username and click login |
+| Broad coverage | Specific validation |
+
+> A test scenario may generate multiple test cases.
+
+---
+
+## 4. Positive Testing
+
+Positive testing verifies that the system behaves correctly for valid inputs and expected actions.
+
+### Example
+
+- login with valid username/password
+- submit valid form data
+- apply valid search filter
+
+### Goal
+
+Ensure that the product works as intended for valid use.
+
+---
+
+## 5. Negative Testing
+
+Negative testing checks whether the system handles invalid, wrong, or unexpected input correctly.
+
+### Example
+
+- login with wrong password
+- enter special characters in name field
+- invalid email format
+- empty mandatory field
+
+### Goal
+
+Ensure the system rejects invalid input gracefully and shows appropriate messages.
+
+---
+
+### Test case design Technique 
+1. Error Gussing
+2. Equivalence Partition 
+3. Boundary Value Analysis (BVA)
+4. Decission Table Technique
+5. State Transistion Diagram
+
+1. **Error Gussing** : Error guessing is based on tester experience and intuition. The tester tries scenarios likely to fail.
+    
+    - blank fields
+    - duplicate entries
+    - unsupported special characters
+    - wrong sequence of steps
+
+2. **Equivalence Partition** : Equivalence partitioning divides input data into groups that are expected to behave similarly
+    1. Pressmen rule
+    2. Pracice method. 
+
+    ### Pressmen rule: 
+        1. <Rule 1>: If the input `range of values` then design the test cases for one valid and two invalid values. 
+
+        2. <Rule 2> : If the input is `set of values` then design the test cases for one valid and two invalid values. 
+
+        3. <Rule 3> : If the input is `boolean` then design the test cases for both "true / false" values
+
+    ### Practice method 
+        - If the input is range of values then divide the range into equal parts and test for all those values and atleast test for two invalid values this is called practice method
+
+3. Boundary Value Analysis (BVA): Boundary value analysis checks values at the edge of valid and invalid ranges.
+
+### Example
+
+If age must be 18 to 60:
+
+- valid boundary values: 18, 60
+- just below boundary: 17
+- just above boundary: 61
+
+> Boundary values often reveal defects that normal average values miss.
+
+## 8. Decision Table Testing
+
+Decision table testing is used when multiple conditions lead to multiple outcomes.
+
+### Example
+
+For login:
+
+- if username valid and password valid → allow login
+- if username valid and password invalid → show error
+- if username invalid and password valid → show error
+- if both invalid → show error
+
+This method is useful for rules-based logic.
+
+---
+
+## 9. State Transition Testing
+
+State transition testing validates behavior when an application moves from one state to another.
+
+### Example
+
+- user logged out → login → logged in → logout → logged out
+
+This is useful in workflows like login, shopping cart, or approval systems.
+---
+
+## 6. Defect life cycle
+- **Defect** : If a feature / functionality is not working according to the customer requirment is called as defect.
+
+    1. Defect 
+        1. Severity
+            - Blocker
+            - Critical
+            - Major
+            - Minor
+
+        2. Priority
+            - High
+            - Medium
+            - Low
+
+
+### Severity
+
+Severity describes the impact of the defect on the system.
+
+Examples:
+
+- Critical: application crashes, data loss, security issue
+- Major: important feature is broken
+- Moderate: feature works but in a limited way
+- Minor: cosmetic or minor usability issue
+
+### Priority
+
+Priority defines how quickly the defect needs to be fixed.
+
+Examples:
+
+- P1: fix immediately
+- P2: fix in next release
+- P3: fix when time allows
+
+> Severity is about business/system impact; priority is about urgency.
+
+### A defect goes through several stages:
+
+1. New
+2. Assigned
+3. Open
+4. In Progress
+5. Fixed
+6. Retest
+7. Verified
+8. Closed
+9. Reopened (if required)
+
+### Diagram
+
+```mermaid
+flowchart LR
+    A[New] --> B[Assigned]
+    B --> C[Open]
+    C --> D[In Progress]
+    D --> E[Fixed]
+    E --> F[Retest]
+    F --> G[Verified]
+    G --> H[Closed]
+    G --> I[Reopened]
+```
+
+---
+
+### Bug Report Template
+
+A proper defect report usually includes:
+
+- Defect ID
+- Title
+- Severity
+- Priority
+- Module/Feature
+- Environment
+- Steps to reproduce
+- Expected result
+- Actual result
+- Screenshots/video
+- Assignee
+- Status
+
+### Duplicate Defects
+
+When the same defect is reported multiple times, it is considered a duplicate. The tester should avoid duplicate entries and use the existing defect ID.
+
+---
+
+### Defect Rejection
+
+A defect can be rejected if it is not reproducible, not valid, or outside the product requirements.
+
+### Common rejection reasons
+
+- not reproducible
+- duplicate
+- not a valid defect
+- requirement mismatch due to misunderstanding
+
+---
+
+### Defect Closure
+
+A defect is closed when:
+
+- fix is implemented
+- retest is passed
+- the developer and tester agree the issue is resolved
+
+---
+
+## 7. ISTQB Question
