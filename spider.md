@@ -38,10 +38,38 @@ Waterfall model is a step-by-step procedure or standard approach to develop new 
             - Maintenance
 
 #### Spiral Model
-Note: Add stage or diagram.
+The Spiral model is a risk-driven SDLC model where the project repeatedly passes through planning, risk analysis, engineering, and evaluation in iterative cycles.
+
+```mermaid
+flowchart LR
+    A[Requirements] --> B[Planning]
+    B --> C[Risk Analysis]
+    C --> D[Engineering / Development]
+    D --> E[Testing]
+    E --> F[Evaluation]
+    F --> G{Customer Feedback?}
+    G -->|Yes| B
+    G -->|No| H[Release]
+```
 
 #### V and V Model
-Note: Add stage or diagram.
+The V-model shows verification and validation activities aligned with each development phase. Each stage of development has a corresponding testing stage.
+
+```mermaid
+flowchart LR
+    A[Requirements] --> B[System Design]
+    B --> C[Architecture Design]
+    C --> D[Module Design]
+    D --> E[Coding]
+
+    A1[Requirement Testing] --> A
+    B1[System Testing] --> B
+    C1[Integration Testing] --> C
+    D1[Unit Testing] --> D
+
+    E --> E1[Acceptance Testing]
+    E1 --> F[Final Product]
+```
 
 #### Agile Model
 - Agile is an iterative and incremental approach where the customer keeps changing requirements. Since the company is flexible, it accepts these changes, develops them, tests them, and delivers quality software to the customer in a short span of time. This is called Agile.
